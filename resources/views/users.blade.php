@@ -17,7 +17,7 @@
           <div class="card-body">
             <div class="d-flex flex-column align-items-center">
               <a class="btn btn-info btn-sm mb-2" href="{{ route('user.edit', $user->id) }}" >Editar Usuário</a>
-              <form action="" method="post">
+              <form action="{{ route('user.destroy', $user->id) }}" method="post">
                 @csrf
                 @method('delete')
                 <button class="btn btn-danger btn-sm mb-2" type="submit">Deletar Usuário</button>
