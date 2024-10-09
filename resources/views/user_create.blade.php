@@ -16,19 +16,19 @@
 
       <div class="mb-3">
         <label for="firstName" class="form-label">Primeiro nome</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" name="firstName" placeholder="Digite seu primeiro nome">
+        <input type="text" class="form-control" id="firstName" name="firstName"placeholder="Digite seu primeiro nome">
         {{ $errors->first('firstName') }}
       </div>
       
       <div class="mb-3">
         <label for="lastName" class="form-label">Sobrenome</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" name="lastName" placeholder="Digite seu sobrenome">
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Digite seu sobrenome">
         {{ $errors->first('lastName') }}
       </div>
       
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" name="email" placeholder="Digite seu email">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email">
         {{ $errors->first('email') }}
       </div>
       

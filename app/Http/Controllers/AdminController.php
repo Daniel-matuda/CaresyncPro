@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('login', [
-            'title' => 'Login'
-        ]);
+        dd('admin');
     }
 
     /**
@@ -31,24 +28,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt([
-            'email' => $validated['email'],
-            'password' => $validated['password'],
-            'is_admin' => 1
-        ], $request->filled('remember'))) {
-            $request->session()->regenerate();
- 
-            return redirect()->intended('admin');
-        }
- 
-        return back()->withErrors([
-            'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
-        ]);
+        //
     }
 
     /**
@@ -78,10 +58,8 @@ class LoginController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy(string $id)
     {
-        Auth::logout();
-
-        return back();
+        //
     }
 }

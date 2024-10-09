@@ -34,6 +34,7 @@ class UserController extends Controller
                 'firstName' => 'Daniel',
                 'lastName' => 'Matuda',
                 'password' => bcrypt('123'),
+                'is_admin' => 1
             ]
         );
 

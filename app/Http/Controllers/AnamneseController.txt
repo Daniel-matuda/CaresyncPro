@@ -1,0 +1,122 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Anamnese;
+use Illuminate\Http\Request;
+use App\Http\Requests\AnamneseRequest;
+use Illuminate\Support\Facades\Session;
+
+class AnamneseController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $anamneses = Anamnese::paginate(20);
+
+        return view('anamneses', [
+            'title' => 'Listagem de Fichas de Anamnese',
+            'anamneses' => $anamneses
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(Anamnese $anamnese)
+    {
+        return view('anamnese_create', [
+            'title' => 'Criar uma ficha de Anamnese'
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        // Valida os campos
+        $validated = $request->validate([
+            'local_do_atendimento' => 'required',
+            'nome' => 'required',
+            'data' => 'required',
+            'cor' => 'required',
+            'estado_civil' => 'required',
+            'profissao' => 'required',
+            'nacionalidade' => 'required',
+            'naturalidade' => 'required',
+            'procedencia' => 'required',
+            'endereco' => 'required',
+            'content' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        // Cria a anamnese
+        $created = Anamnese::create($validated);
+
+        // Feedback de sucesso ou erro
+        $created ? 
+            Session::flash('updated_success', 'Criado com sucesso') :
+            Session::flash('updated_error', 'Erro ao Criar');
+
+        return back();
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Anamnese $anamnese)
+    {
+        return view('Anamnese', [
+            'title' => 'Anamnese',
+            'anamnese' => $anamnese
+        ]);   
+    }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Anamnese $anamnese)
+    {
+        return view('anamnese_edit', [
+            'title' => 'Editar Ficha de Anamnese',
+            'anamnese' => $anamnese
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Anamnese $anamnese)
+    {
+        $validated = $request->validate([
+            'local_do_atendimento' => 'required',
+            'nome' => 'required',
+            'data' => 'required',
+            'cor' => 'required',
+            'estado_civil' => 'required',
+            'profissao' => 'required',
+            'nacionalidade' => 'required',
+            'naturalidade' => 'required',
+            'procedencia' => 'required',
+            'endereco' => 'required',
+        ]);
+
+        $updated = $anamnese->update($validated);
+
+        ($updated) ?
+            Session::flash('updated_success', 'Atualizado com sucesso'):
+            Session::flash('updated_error', 'Erro ao atualizar');
+
+        return back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
