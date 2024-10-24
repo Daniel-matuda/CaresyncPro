@@ -19,6 +19,7 @@
           <div class="card-body">
             <div class="d-flex flex-column align-items-center">
               <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.edit', $anamnese->id) }}" >Editar ficha</a>
+              <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.show', $anamnese->id) }}" >Ficha Completa</a>
               <form action="{{ route('anamnese.destroy', $anamnese->id) }}" method="post">
                 @csrf
                 @method('delete')

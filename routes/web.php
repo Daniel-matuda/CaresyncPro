@@ -16,6 +16,8 @@ Route::post('/user/store', [UserController::class, 'store'])->name('user.store')
 Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
+
 
 Route::get('/anamneses', [AnamneseController::class, 'index'])->name('anamneses');
 Route::get('/anamnese/create', [AnamneseController::class, 'create'])->name('anamnese.create');
