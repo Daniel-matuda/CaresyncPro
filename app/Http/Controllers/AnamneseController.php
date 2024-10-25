@@ -55,12 +55,12 @@ class AnamneseController extends Controller
      */
     public function show(Anamnese $anamnese)
     {
-        return view('anamnese_create', [
-            'title' => 'Criar uma ficha',
+        return view('anamnese', [
+            'title' => 'Ver ficha',
             'anamnese' => $anamnese
         ]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

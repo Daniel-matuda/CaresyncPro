@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('email')->unique();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('patient');
@@ -24,6 +25,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
+
+            $table->date('nascimento');
+            $table->string('sexo');
+            $table->string('endereco');
+            $table->string('telefone');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

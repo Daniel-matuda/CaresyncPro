@@ -11,15 +11,15 @@
       <div class="col-md-3 mb-3">
         <div class="card">
           <h4 class="card-header">
-            <a style="text-decoration: none" href="">{{ $anamnese->nome}}</a>
+            <a style="text-decoration: none" href="{{ route('anamnese.show', $anamnese->id) }}">{{ $anamnese->nome }}</a>
             <br>
-            <a style="text-decoration: none" href="">Nrº do protocolo: {{ $anamnese->id}}</a>
+            <a style="text-decoration: none" href="">Nrº do protocolo: {{ $anamnese->id }}</a>
           </h4>
 
           <div class="card-body">
             <div class="d-flex flex-column align-items-center">
-              <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.edit', $anamnese->id) }}" >Editar ficha</a>
-              <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.show', $anamnese->id) }}" >Ficha Completa</a>
+              <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.edit', $anamnese->id) }}">Editar ficha</a>
+              <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.show', $anamnese->id) }}">Ficha Completa</a>
               <form action="{{ route('anamnese.destroy', $anamnese->id) }}" method="post">
                 @csrf
                 @method('delete')

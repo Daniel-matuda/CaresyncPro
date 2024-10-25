@@ -34,7 +34,12 @@ class UserController extends Controller
                 'firstName' => 'Daniel',
                 'lastName' => 'Matuda',
                 'password' => bcrypt('123'),
-                'is_admin' => 1
+                'is_admin' => 1,
+                'nascimento' => '2011-02-12',
+                'sexo' => 'masculino',
+                'telefone' => '(61) 999223834',
+                'endereco' => 'QNXX ConjYY QuadraZZ Casa PPP' 
+
             ]
         );
 
@@ -86,9 +91,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validated = $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'required|unique:users,email,'.$user->id,
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'nascimento' => 'required|date',
+            'sexo' => 'required|string|in:masculino,feminino,outro',
+            'endereco' => 'required|string|max:255',
+            'telefone' => 'required|string|max:30',
         ]);
 
         $updated = $user->update($validated);
