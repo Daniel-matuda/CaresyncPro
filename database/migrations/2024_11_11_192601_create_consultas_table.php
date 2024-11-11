@@ -21,13 +21,18 @@ return new class extends Migration
             $table->string('endereco')->nullable();
             $table->string('observacoes')->nullable();
             $table->date('data')->nullable();
-            $table->string('paciente_id')->nullable();
-            $table->string('medico_id')->nullable();
-            
+
+            // Definindo as colunas para as FK
+            $table->unsignedBigInteger('paciente_id')->nullable(); // FK para a tabela users (paciente)
+            $table->unsignedBigInteger('medico_id')->nullable(); // FK para a tabela users (médico)
+
+            // Definindo as chaves estrangeiras
+            $table->foreign('paciente_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('medico_id')->references('id')->on('users')->onDelete('set null');
+
             $table->rememberToken();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
-
         });
     }
 
