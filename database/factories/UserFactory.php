@@ -28,10 +28,17 @@ class UserFactory extends Factory
             'lastName' => $this->faker->lastName(),
             'email' => $this->faker->email(),
             'password' => bcrypt('123'),
-            'nascimento' => $this->faker->dateTimeBetween('-65 years', '-20 years')->format('Y-m-d'),
             'sexo' => $this->faker->randomElement(['masculino', 'feminino']),
-            'endereco' => $this->faker->address,
+            
             'telefone' => $this->faker->numerify('(##) #####-####'),
+            'nascimento' => $this->faker->dateTimeBetween('-65 years', '-20 years')->format('Y-m-d'),
+            'endereco' => $this->faker->address,
+
+            'especialidade' => $this->faker->word(),
+            'cep' => $this->faker->postcode(),
+            'cidade' => $this->faker->city(),
+            'uf' => $this->faker->stateAbbr(),
+            'nr_sus' => $this->faker->creditCardNumber(),
         ];
     }
 

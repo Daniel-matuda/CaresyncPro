@@ -38,7 +38,12 @@ class UserController extends Controller
                 'nascimento' => '2011-02-12',
                 'sexo' => 'masculino',
                 'telefone' => '(61) 999223834',
-                'endereco' => 'QNXX ConjYY QuadraZZ Casa PPP' 
+                'endereco' => 'QNXX ConjYY QuadraZZ Casa PPP',
+                'especialidade' => 'super-admin',
+                'cep' => '71805808',
+                'cidade' => 'Brasilia',
+                'uf' => 'DF',
+                'nr_sus' => '0000111122223333',
 
             ]
         );
@@ -94,10 +99,17 @@ class UserController extends Controller
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+            'password' => 'required|string',
             'nascimento' => 'required|date',
             'sexo' => 'required|string|in:masculino,feminino,outro',
             'endereco' => 'required|string|max:255',
             'telefone' => 'required|string|max:30',
+
+            'especialidade' => 'nullable|string|max:255',
+            'cep' => 'nullable|string|max:255',
+            'cidade' => 'nullable|string|max:255',
+            'uf' => 'nullable|string|max:255',
+            'nr_sus' => 'nullable|string|max:255',
         ]);
 
         $updated = $user->update($validated);

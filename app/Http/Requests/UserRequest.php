@@ -30,6 +30,12 @@ class UserRequest extends FormRequest
             'sexo' => 'required|string|in:masculino,feminino,outro',
             'endereco' => 'required|string|max:255',
             'telefone' => 'required|string|max:30',
+
+            'especialidade' => 'nullable|string|max:255',
+            'cep' => 'nullable|string|max:255',
+            'cidade' => 'nullable|string|max:255',
+            'uf' => 'nullable|string|max:255',
+            'nr_sus' => 'nullable|string|max:255',
         ];
     }
 }

@@ -31,13 +31,11 @@ return new class extends Migration
             $table->string('endereco');
             $table->string('telefone');
 
-            $table->string('especialidade');
-            $table->string('cep');
-            $table->string('endereco');
-            $table->string('cidade');
-            $table->string('uf');
-            $table->string('nr_sus');
-            $table->string('nascimento');
+            $table->string('especialidade')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf')->nullable();
+            $table->string('nr_sus')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
