@@ -20,6 +20,7 @@
             <div class="d-flex flex-column align-items-center">
               <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.edit', $anamnese->id) }}">Editar ficha</a>
               <a class="btn btn-info btn-sm mb-2" href="{{ route('anamnese.show', $anamnese->id) }}">Ficha Completa</a>
+              <a class="btn btn-success btn-sm mb-2" href="{{ route('anamnese.show', $anamnese->id) }}">Criar diagnóstico</a>
               <form action="{{ route('anamnese.destroy', $anamnese->id) }}" method="post">
                 @csrf
                 @method('delete')
