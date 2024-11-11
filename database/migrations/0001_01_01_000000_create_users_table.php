@@ -36,6 +36,8 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->string('uf')->nullable();
             $table->string('nr_sus')->nullable();
+            $table->string('cpf')->nullable();
+
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
