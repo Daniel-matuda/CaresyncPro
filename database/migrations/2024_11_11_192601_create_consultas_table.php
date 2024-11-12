@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('local')->nullable();
             $table->string('endereco')->nullable();
             $table->string('observacoes')->nullable();
-            $table->date('data')->nullable();
+            $table->timestamp('data')->nullable();
 
             // Definindo as colunas para as FK
             $table->unsignedBigInteger('paciente_id')->nullable(); // FK para a tabela users (paciente)
