@@ -1,0 +1,86 @@
+Exames:
+    ☐ QD (Queixa e duração):
+    ☐ HMA (Historia da Molestia Atual):
+    ☐ AP (Antecedentes Pessoais):
+    ☐ AF (Antecedentes Familiares)
+    ☐ IDA (Interrogatorio Sobre Diversos Aparelhos)
+        ☐ IDA_pf
+        ☐ IDA_cabeca
+        ☐ IDA_olhos
+        ☐ IDA_nariz
+        ☐ IDA_bg
+        ☐ IDA_acr
+        ☐ IDA_ad
+        ☐ IDA_gu
+        ☐ IDA_slh
+        ☐ IDA_sev
+        ☐ IDA_sn
+        ☐ IDA_al
+        ☐ IDA_qe
+    ☐ EFG (Exame Fisico Geral)
+        ☐ EFG_afg
+        ☐ EFG_pele
+        ☐ EFG_anexos
+        ☐ EFG_subcutaneo
+        ☐ EFG_gl
+        ☐ EFG_mucosas
+        ☐ EFG_osteomuscular
+        ☐ EFG_peso
+        ☐ EFG_altura
+        ☐ EFG_PA
+        ☐ EFG_FC
+        ☐ EFG_FR
+        ☐ EFG_T
+    ☐ EFE (Exame Físico Especifico)
+        ☐ EFE_sc_cranio
+        ☐ EFE_sc_olhos
+        ☐ EFE_sc_nariz
+        ☐ EFE_sc_dfm
+        ☐ EFE_sc_boca
+        ☐ EFE_sc_orofaringe
+        ☐ EFE_sc_pescoco
+        ☐ EFE_ar_ie
+        ☐ EFE_ar_id
+        ☐ EFE_ar_palpacao
+        ☐ EFE_ar_percussao
+        ☐ EFE_ar_ausculta
+        ☐ EFE_ac_inspecao
+        ☐ EFE_ac_palpacao
+        ☐ EFE_ac_ausculta
+        ☐ EFE_ac_arterias
+        ☐ EFE_abdome_inspecao
+        ☐ EFE_abdome_ausculta
+        ☐ EFE_abdome_percussao
+        ☐ EFE_abdome_figado
+        ☐ EFE_abdome_baco
+        ☐ EFE_abdome_rins
+        ☐ EFE_abdome_ps
+        ☐ EFE_abdome_pd
+        ☐ EFE_agu_ar
+        ☐ EFE_agu_ge
+        ☐ EFE_cv_inspecao
+        ☐ EFE_cv_pmc
+        ☐ EFE_cv_membros
+        ☐ EFE_sn_ep
+        ☐ EFE_sn_mv-fm-cm
+        ☐ EFE_sn_sensibilidade
+        ☐ EFE_hd1
+        ☐ EFE_hd2
+        ☐ EFE_hd3
+        ☐ EFE_hd4
+        ☐ EFE_hd5
+        ☐ EFE_hd6
+        ☐ EFE_hd7
+        ☐ EFE_hd8
+        ☐ EFE_hd9
+        ☐ EFE_hd10
+        ☐ EFE_sec_bioquimicos
+        ☐ EFE_sec_microbiologicos
+        ☐ EFE_sec_di
+        ☐ EFE_ct_nm
+        ☐ EFE_ct_medicamentosa
+        ☐ EFE_ct_procedimentos
+        ☐ EFE_ct_cirurgia
+    ☐ Aluno
+    ☐ Codigo
+    ☐ Professor
