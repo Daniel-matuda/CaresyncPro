@@ -1,0 +1,17 @@
+☐ id
+☐ nome_paciente
+☐ nr_sus
+☐ sexo
+☐ data_nascimento
+☐ nome_exame
+☐ data_exame
+☐ hora
+☐ resultado
+☐ especialidade
+☐ local
+☐ motivo_exame
+☐ endereco
+☐ nome_medico
+☐ observacoes
+☐ reavaliacao
+☐ prescricoes_medicas

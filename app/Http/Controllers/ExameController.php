@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Exame;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ExameController extends Controller
 {
@@ -12,7 +14,12 @@ class ExameController extends Controller
      */
     public function index()
     {
-        //
+        $exames = Exame::paginate(20);
+
+        return view('exames', [
+            'title' => 'Listagem de exames',
+            'exames' => $exames
+        ]);
     }
 
     /**
@@ -20,7 +27,9 @@ class ExameController extends Controller
      */
     public function create()
     {
-        //
+        return view('exame_create', [
+            'title' => 'Exame médico'
+        ]);
     }
 
     /**
@@ -28,7 +37,16 @@ class ExameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validated();
+
+
+        $saved =  ($exame = new Exame())->insert($validated);
+
+        ($saved) ?
+            Session::flash('success', 'Exame cadastrado com sucesso.'):
+            Session::flash('error', 'Erro ao cadastrar o Exame');
+
+        return back();
     }
 
     /**
