@@ -15,18 +15,22 @@ return new class extends Migration
         Schema::create('agendamento_consultas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nome_paciente')->nullable();
-            $table->string('nr_sus')->nullable();
-            $table->string('sexo')->nullable();
-            $table->date('data_nascimento')->nullable();
-            $table->timestamp('data_consulta')->nullable();
-            $table->string('nome_consulta')->nullable();
-            $table->dateTime('hora')->nullable();
+
+            $table->string('status')->nullable();
             $table->string('especialidade')->nullable();
+            $table->string('tipo')->nullable();
             $table->string('local')->nullable();
             $table->string('endereco')->nullable();
-            $table->string('tipo')->nullable();
-            $table->text('observacoes')->nullable();
+            $table->string('observacoes')->nullable();
+            $table->timestamp('data')->nullable();
+
+            // Definindo as colunas para as FK
+            $table->unsignedBigInteger('paciente_id')->nullable(); // FK para a tabela users (paciente)
+            $table->unsignedBigInteger('medico_id')->nullable(); // FK para a tabela users (médico)
+
+            // Definindo as chaves estrangeiras
+            $table->foreign('paciente_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('medico_id')->references('id')->on('users')->onDelete('set null');
 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
