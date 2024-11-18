@@ -30,7 +30,6 @@ return new class extends Migration
             $table->foreign('paciente_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('medico_id')->references('id')->on('users')->onDelete('set null');
 
-            $table->rememberToken();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
         });
