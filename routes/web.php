@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExameController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AnamneseController;
 use App\Http\Controllers\PasswordController;
@@ -26,6 +27,14 @@ Route::get('/anamnese/edit/{anamnese}', [AnamneseController::class, 'edit'])->na
 Route::put('/anamnese/{anamnese}', [AnamneseController::class, 'update'])->name('anamnese.update');
 Route::delete('/anamnese/{anamnese}', [AnamneseController::class, 'destroy'])->name('anamnese.destroy');
 Route::get('/anamnese/{anamnese}', [AnamneseController::class, 'show'])->name('anamnese.show');
+
+Route::get('/exames', [ExameController::class, 'index'])->name('exames');
+Route::get('/exame/create', [ExameController::class, 'create'])->name('exame.create');
+Route::post('/exame/store', [ExameController::class, 'store'])->name('exame.store');
+Route::get('/exame/edit/{exame}', [ExameController::class, 'edit'])->name('exame.edit');
+Route::put('/exame/{exame}', [ExameController::class, 'update'])->name('exame.update');
+Route::delete('/exame/{exame}', [ExameController::class, 'destroy'])->name('exame.destroy');
+Route::get('/exame/{exame}', [ExameController::class, 'show'])->name('exame.show');
 
 
 Route::get('login', [LoginController::class, 'index'])->name('login');

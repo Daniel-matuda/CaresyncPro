@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container mt-5">
-    <h2 class="mb-4">Criar uma ficha de Anamnese</h2>
+    <h2 class="mb-4">Criar Exame</h2>
 
     @if (session()->has('success'))
         <x-alert key="success" :message="session()->get('success')"/>
@@ -12,80 +12,93 @@
     @endif
 
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">Informações da Ficha</div>
+        <div class="card-header bg-primary text-white">Informações do Exame</div>
         <div class="card-body">
-            <form action="{{ route('anamnese.store') }}" method="post">
+            <form action="{{ route('exame.store') }}" method="post">
                 @csrf
 
+                <!-- Informações Gerais -->
+                <h5 class="mb-3">Informações Gerais</h5>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="local_do_atendimento" class="form-label">Local do Atendimento</label>
-                        <input type="text" class="form-control" id="local_do_atendimento" name="local_do_atendimento" placeholder="Local do Atendimento">
-                        {{ $errors->first('local_do_atendimento') }}
+                        <label for="QD" class="form-label">Queixa Principal</label>
+                        <input type="text" class="form-control" id="QD" name="QD" placeholder="Queixa Principal">
+                        {{ $errors->first('QD') }}
                     </div>
-
                     <div class="col-md-6 mb-3">
-                        <label for="nome" class="form-label">Nome do Paciente</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Paciente">
-                        {{ $errors->first('nome') }}
+                        <label for="HMA" class="form-label">História da Moléstia Atual</label>
+                        <input type="text" class="form-control" id="HMA" name="HMA" placeholder="História da Moléstia Atual">
+                        {{ $errors->first('HMA') }}
                     </div>
                 </div>
 
+                <!-- Antecedentes -->
+                <h5 class="mb-3">Antecedentes</h5>
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label for="data" class="form-label">Data</label>
-                        <input type="text" class="form-control" id="data" name="data" placeholder="Data do Atendimento">
-                        {{ $errors->first('data') }}
+                        <label for="AP" class="form-label">Antecedentes Pessoais</label>
+                        <input type="text" class="form-control" id="AP" name="AP" placeholder="Antecedentes Pessoais">
+                        {{ $errors->first('AP') }}
                     </div>
-
                     <div class="col-md-4 mb-3">
-                        <label for="cor" class="form-label">Cor</label>
-                        <input type="text" class="form-control" id="cor" name="cor" placeholder="Cor do Paciente">
-                        {{ $errors->first('cor') }}
+                        <label for="AF" class="form-label">Antecedentes Familiares</label>
+                        <input type="text" class="form-control" id="AF" name="AF" placeholder="Antecedentes Familiares">
+                        {{ $errors->first('AF') }}
                     </div>
-
                     <div class="col-md-4 mb-3">
-                        <label for="estado_civil" class="form-label">Estado Civil</label>
-                        <input type="text" class="form-control" id="estado_civil" name="estado_civil" placeholder="Estado Civil">
-                        {{ $errors->first('estado_civil') }}
+                        <label for="IDA" class="form-label">Hábitos de Vida</label>
+                        <input type="text" class="form-control" id="IDA" name="IDA" placeholder="Hábitos de Vida">
+                        {{ $errors->first('IDA') }}
                     </div>
                 </div>
 
+                <!-- Exame Físico Geral -->
+                <h5 class="mb-3">Exame Físico Geral</h5>
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="profissao" class="form-label">Profissão</label>
-                        <input type="text" class="form-control" id="profissao" name="profissao" placeholder="Profissão do Paciente">
-                        {{ $errors->first('profissao') }}
+                    <div class="col-md-3 mb-3">
+                        <label for="EFG_peso" class="form-label">Peso</label>
+                        <input type="text" class="form-control" id="EFG_peso" name="EFG_peso" placeholder="Peso">
+                        {{ $errors->first('EFG_peso') }}
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label for="nacionalidade" class="form-label">Nacionalidade</label>
-                        <input type="text" class="form-control" id="nacionalidade" name="nacionalidade" placeholder="Nacionalidade do Paciente">
-                        {{ $errors->first('nacionalidade') }}
+                    <div class="col-md-3 mb-3">
+                        <label for="EFG_altura" class="form-label">Altura</label>
+                        <input type="text" class="form-control" id="EFG_altura" name="EFG_altura" placeholder="Altura">
+                        {{ $errors->first('EFG_altura') }}
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label for="naturalidade" class="form-label">Naturalidade</label>
-                        <input type="text" class="form-control" id="naturalidade" name="naturalidade" placeholder="Naturalidade do Paciente">
-                        {{ $errors->first('naturalidade') }}
+                    <div class="col-md-3 mb-3">
+                        <label for="EFG_PA" class="form-label">Pressão Arterial</label>
+                        <input type="text" class="form-control" id="EFG_PA" name="EFG_PA" placeholder="Pressão Arterial">
+                        {{ $errors->first('EFG_PA') }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="EFG_FC" class="form-label">Frequência Cardíaca</label>
+                        <input type="text" class="form-control" id="EFG_FC" name="EFG_FC" placeholder="Frequência Cardíaca">
+                        {{ $errors->first('EFG_FC') }}
                     </div>
                 </div>
 
+                <!-- Diagnósticos e Condutas -->
+                <h5 class="mb-3">Diagnósticos e Condutas</h5>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="procedencia" class="form-label">Procedência</label>
-                        <input type="text" class="form-control" id="procedencia" name="procedencia" placeholder="Procedência">
-                        {{ $errors->first('procedencia') }}
+                    <div class="col-md-4 mb-3">
+                        <label for="EFE_hd1" class="form-label">Hipótese Diagnóstica 1</label>
+                        <input type="text" class="form-control" id="EFE_hd1" name="EFE_hd1" placeholder="Hipótese Diagnóstica 1">
+                        {{ $errors->first('EFE_hd1') }}
                     </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço do Paciente">
-                        {{ $errors->first('endereco') }}
+                    <div class="col-md-4 mb-3">
+                        <label for="EFE_ct_medicamentosa" class="form-label">Conduta Medicamentosa</label>
+                        <input type="text" class="form-control" id="EFE_ct_medicamentosa" name="EFE_ct_medicamentosa" placeholder="Conduta Medicamentosa">
+                        {{ $errors->first('EFE_ct_medicamentosa') }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="EFE_ct_procedimentos" class="form-label">Procedimentos Realizados</label>
+                        <input type="text" class="form-control" id="EFE_ct_procedimentos" name="EFE_ct_procedimentos" placeholder="Procedimentos Realizados">
+                        {{ $errors->first('EFE_ct_procedimentos') }}
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Criar Ficha de Anamnese</button>
+                <!-- Botão de Envio -->
+                <button type="submit" class="btn btn-primary w-100">Criar Exame</button>
             </form>
         </div>
     </div>
