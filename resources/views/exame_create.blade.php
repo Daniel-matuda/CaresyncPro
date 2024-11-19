@@ -14,7 +14,7 @@
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">Informações do Exame</div>
         <div class="card-body">
-            <form action="{{ route('exames.store') }}" method="post">
+            <form action="{{ route('exame.store') }}" method="post">
                 @csrf
 
                 <!-- Collapse for General Data -->

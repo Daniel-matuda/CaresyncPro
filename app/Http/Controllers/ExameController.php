@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Exame;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ExameRequest;
 use Illuminate\Support\Facades\Session;
 
 class ExameController extends Controller
@@ -14,7 +15,7 @@ class ExameController extends Controller
      */
     public function index()
     {
-        $exames = Exame::paginate(20);
+        $exames = Exame::paginate(5);
 
         return view('exames', [
             'title' => 'Listagem de exames',
@@ -28,14 +29,14 @@ class ExameController extends Controller
     public function create()
     {
         return view('exame_create', [
-            'title' => 'Exame médico'
+            'title' => 'Criar exame'
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ExameRequest $request)
     {
         $validated = $request->validated();
 
@@ -54,7 +55,7 @@ class ExameController extends Controller
      */
     public function show(Exame $exame)
     {
-        return view('anamnese', [
+        return view('exame', [
             'title' => 'Ver resultado exame',
             'exame' => $exame
         ]);
