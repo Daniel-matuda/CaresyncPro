@@ -1,0 +1,164 @@
+Recomendo usar o google chrome e utilizar o google como mecanismo de pesquisa dessa forma é garantido que você irá encontrar tudo deste manual
+Instalar o Vs code
+
+Instalar o Git
+
+Instalar o Winrar
+
+Ir até: meu computador>> C: 
+chegando lá você cria uma pasta chamada "tools" e criar uma pasta chamada "php" dentro da pasta "tools"
+tem que ficar assim: C:/tools/php
+
+Acesse o link: https://www.php.net/
+clique no botão Download
+Na ultima versão estável clique em: windows downloads
+Baixe o zip do php, a versão de cima: "VS16 x64 Non Thread Safe"
+você pode deixar o zip na sua área de trabalho pois logo ele será excluído
+
+Agora basta extrair o zip para esse diretório C:/tools/php
+
+nesse momento você pode excluir o zip
+
+agora aperte o botão de windows no teclado e digite: "Editar as variáveis de Ambiente do Sistema"
+Irá abrir uma aba de propriedados do sistema
+clique em "Variáveis de Ambiente"
+
+Na seção de "Variáveis do sistema" (seção de baixo) ache o PATH
+você irá entrar no path e adicionar um novo path
+ele vai pedir um caminho, você coloca o caminho do php: C:\tools\php
+
+intale o “Microsoft Visual C++ 2015-2019 Redistributable”
+instale primeiro o x86 e depois o x64 (sim tem que instalar os dois)
+
+x86: https://aka.ms/vs/16/release/vc_redist.x86.exe
+x64: https://aka.ms/vs/16/release/vc_redist.x64.exe
+
+após isso seu php está instalado, verefique se foi instalado com sucesso abrindo um novo cmd e digitando: "php -v"
+
+instale o node
+feche qualquer cmd aberto, abra novamente um cmd e digite "node -v" para verificar se o node foi instalado
+
+instale o composer
+é muito importante já ter instalado o node e mais importante ainda é ter intalado o php pois o composer precisa estar com o path no caminho C:/tools/php, ele vai reconhcer esse caminho sozinho se você seguiu tudo até aqui
+feche a abra o terminal e digite "composer -v"
+
+instale o chocolatey no windows
+acesse esse link: https://chocolatey.org/install
+copie a linha de comando que instala o chocolatey, basta rolar a página para baixo, o comando vai se parecer com esse:
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+abra uma janela do power shell como administrador e rode o comando para instalar 
+
+teste se foi instalado abrindo o terminal e digitando: "choco -v"
+
+Para instalar o MySql no windows usando o Chocolatey siga os passos:
+abra um terminal como admin e digite: "choco install mysql -y"
+
+teste se funcionou rodando o comando: mysql -uroot -p
+ele vai pedir a senha, basta apertar espaço (se você configurou uma senha anteriormente digite a senha do seu mysql)
+
+Instale o tableplus digitando o comando: "choco install tableplus -y"
+
+Baixe o Git no link: https://git-scm.com/downloads
+
+(ESSA PARTE É TOTALMENTE OPCIONAL, a vantagem do Cmder é que ele tem os mesmos comandos do terminal do MacOS e do Linux, diferente do powershell e do Prompt de Comando padrão do Windows)
+Instale o terminal do Cmder no link: https://cmder.app/
+
+abra o terminal e entre no diretório do seu desktop
+exemplo: C:\Users\Daniel Matuda\desktop
+Clone o repositório do github para sua área de trabalho
+exemplo: git clone https://github.com/Daniel-matuda/CaresyncPro.git
+
+arraste a pasta para dentro do VScode
+
+agora você vai em Gerenciador de arquivos e entre nesse arquivo como bloco de notas: C:\tools\php\php.ini
+dentro do arquivo php.ini, tire o ; no começo das linhas:
+
+extension=fileinfo
+extension=pdo_mysql
+extension=openssl
+
+após essas linhas estarem descomentadas vá no terminal do vs code e digite:
+"composer install"
+
+quando finalizar o composer install crie um arquivo chamado .env.exemple e coloque tudo isso:
+
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+
+depois disso crie um outro arquivo na raiz do projeto chamdo .env e cole tudo que tem no .env.exemple
+
+abra o seu terminal como admin e crie o banco de dados do projeto
+exemplo:
+
+mysql -uroot -p
+create database caresync_db;
+show databases;
+
+abra o tableplus e configure exatamente o banco que criou e a senha vazia e crie a conexão
+vá no arquivo.env e também coloque exatamente o mesmo nome do banco e senha. vão ter 5 linhas para configurar o DATABASE, basta alterar o nome e a senha
+
+rode o comando: php artisan key:generate
+
+se quiser verificar aonde está instalado o arquivo ini use o comando:
+php --ini
+(se fez tudo exatamente como está aqui o comando key:generate vai dar certo)
+
+----------------------------------------------------------------------------------------
+Rode o projeto:
+
+php artisan migrate:fresh --seed
+php artisan serve
+
+
+

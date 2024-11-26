@@ -9,7 +9,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AnamneseController;
 use App\Http\Controllers\PasswordController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/', [HomeController::class, 'index'])->withoutMiddleware('auth')->name('home');
+
 
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
@@ -43,3 +46,4 @@ Route::get('logout', [LoginController::class, 'destroy'])->name('login.destroy')
 Route::put('/password/{user}', [PasswordController::class, 'update'])->name('password.update');
 
 Route::get('admin', [AdminController::class, 'index'])->middleware('auth');
+

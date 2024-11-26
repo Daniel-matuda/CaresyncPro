@@ -98,26 +98,34 @@ class UserController extends Controller
         $validated = $request->validate([
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string',
+            'email' => 'required|email|unique:users,email,' . $user->id, // Ignora o email do usuário atual
+            'password' => 'nullable|string|confirmed', // Password opcional e deve ser confirmado
             'nascimento' => 'required|date',
             'sexo' => 'required|string|in:masculino,feminino,outro',
             'endereco' => 'required|string|max:255',
             'telefone' => 'required|string|max:30',
-
             'especialidade' => 'nullable|string|max:255',
             'cep' => 'nullable|string|max:255',
             'cidade' => 'nullable|string|max:255',
             'uf' => 'nullable|string|max:255',
             'nr_sus' => 'nullable|string|max:255',
         ]);
-
-        $updated = $user->update($validated);
-
+    
+        // Atualize os campos do usuário
+        $user->fill($validated);
+    
+        // Verifica se uma nova senha foi fornecida
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+    
+        // Salva as alterações no banco de dados
+        $updated = $user->save();
+    
         ($updated) ?
-            Session::flash('updated_success', 'Atualizado com sucesso'):
+            Session::flash('updated_success', 'Atualizado com sucesso') :
             Session::flash('updated_error', 'Erro ao atualizar');
-
+    
         return back();
     }
 
@@ -129,4 +137,5 @@ class UserController extends Controller
         $user->delete();
         return back();
     }
+
 }
