@@ -26,24 +26,24 @@
                         <div class="collapse mt-3" id="generalData">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="QD" class="form-label">QD</label>
+                                    <label for="QD" class="form-label">QD (Queixa e duração)</label>
                                     <textarea class="form-control" id="QD" name="QD" rows="2"></textarea>
                                     {{ $errors->first('QD') }}
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="HMA" class="form-label">HMA</label>
+                                    <label for="HMA" class="form-label">HMA (História da Moléstia Atual)</label>
                                     <textarea class="form-control" id="HMA" name="HMA" rows="2"></textarea>
                                     {{ $errors->first('HMA') }}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="AP" class="form-label">AP</label>
+                                    <label for="AP" class="form-label">AP – Antecedentes Pessoais [Antecedentes fisiológicos e patológicos (antecedentes do parto e D.N.P.M.), Hábitos de vida, alimentação e História social e sexual]</label>
                                     <textarea class="form-control" id="AP" name="AP" rows="2"></textarea>
                                     {{ $errors->first('AP') }}
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="AF" class="form-label">AF</label>
+                                    <label for="AF" class="form-label">AF – Antecedentes Familiares (História Familiar: pais, avós, filhos, tios e primos diretos) </label>
                                     <textarea class="form-control" id="AF" name="AF" rows="2"></textarea>
                                     {{ $errors->first('AF') }}
                                 </div>
@@ -54,7 +54,7 @@
                     <!-- Collapse for IDA Section -->
                     <div class="mb-3">
                         <a class="btn btn-secondary w-100" data-bs-toggle="collapse" href="#idaSection" role="button" aria-expanded="false" aria-controls="idaSection">
-                            IDA (Informações Detalhadas por Área)
+                            IDA (Interrogatório Sobre Diversos Aparelhos) - (Informações Detalhadas por Área)
                         </a>
                         <div class="collapse mt-3" id="idaSection">
                             <div class="row">
