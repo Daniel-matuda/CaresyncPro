@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('HMA')->nullable();
             $table->text('AP')->nullable();
             $table->text('AF')->nullable();
-            $table->text('IDA')->nullable();
             $table->text('IDA_pf')->nullable();
             $table->text('IDA_cabeca')->nullable();
             $table->text('IDA_olhos')->nullable();

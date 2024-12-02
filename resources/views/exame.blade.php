@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container mt-5">
-    <h2 class="mb-4">Resultado do Exame Médico</h2>
+    <h2 class="mb-4 text-center">Ficha de Exame - Visualização</h2>
 
     @if (session()->has('success'))
         <x-alert key="success" :message="session()->get('success')"/>
@@ -12,113 +12,103 @@
     @endif
 
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">Informações do Exame</div>
+        <div class="card-header bg-primary text-white text-center">
+            Informações do Exame
+        </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="QD" class="form-label">Queixa Principal (QD)</label>
-                    <textarea class="form-control" id="QD" name="QD" rows="3" readonly>{{ $exame->QD }}</textarea>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="HMA" class="form-label">História da Moléstia Atual (HMA)</label>
-                    <textarea class="form-control" id="HMA" name="HMA" rows="3" readonly>{{ $exame->HMA }}</textarea>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="AP" class="form-label">Antecedentes Pessoais (AP)</label>
-                    <textarea class="form-control" id="AP" name="AP" rows="3" readonly>{{ $exame->AP }}</textarea>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="AF" class="form-label">Antecedentes Familiares (AF)</label>
-                    <textarea class="form-control" id="AF" name="AF" rows="3" readonly>{{ $exame->AF }}</textarea>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="IDA" class="form-label">Idade Atual (IDA)</label>
-                    <textarea class="form-control" id="IDA" name="IDA" rows="3" readonly>{{ $exame->IDA }}</textarea>
-                </div>
-            </div>
-
-            <!-- Outros campos de IDA -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="IDA_pf" class="form-label">Idade Periférica (IDA_pf)</label>
-                    <textarea class="form-control" id="IDA_pf" name="IDA_pf" rows="3" readonly>{{ $exame->IDA_pf }}</textarea>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="IDA_cabeca" class="form-label">Idade da Cabeça (IDA_cabeca)</label>
-                    <textarea class="form-control" id="IDA_cabeca" name="IDA_cabeca" rows="3" readonly>{{ $exame->IDA_cabeca }}</textarea>
-                </div>
-            </div>
-
-            <!-- Campos EFG -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="EFG_afg" class="form-label">Exame Físico Geral - Aferição da Frequência Cardíaca (EFG_afg)</label>
-                    <textarea class="form-control" id="EFG_afg" name="EFG_afg" rows="3" readonly>{{ $exame->EFG_afg }}</textarea>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="EFG_pele" class="form-label">Exame Físico Geral - Pele (EFG_pele)</label>
-                    <textarea class="form-control" id="EFG_pele" name="EFG_pele" rows="3" readonly>{{ $exame->EFG_pele }}</textarea>
-                </div>
-            </div>
-
-            <!-- Campos EFE -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="EFE_sc_cranio" class="form-label">Exame Físico Especial - Crânio (EFE_sc_cranio)</label>
-                    <textarea class="form-control" id="EFE_sc_cranio" name="EFE_sc_cranio" rows="3" readonly>{{ $exame->EFE_sc_cranio }}</textarea>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="EFE_sc_olhos" class="form-label">Exame Físico Especial - Olhos (EFE_sc_olhos)</label>
-                    <textarea class="form-control" id="EFE_sc_olhos" name="EFE_sc_olhos" rows="3" readonly>{{ $exame->EFE_sc_olhos }}</textarea>
-                </div>
-            </div>
-
-            <!-- Campos para outros sistemas e seções -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="EFE_cv_membros" class="form-label">Exame Físico Cardiovascular - Membros (EFE_cv_membros)</label>
-                    <textarea class="form-control" id="EFE_cv_membros" name="EFE_cv_membros" rows="3" readonly>{{ $exame->EFE_cv_membros }}</textarea>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="EFE_abdome_figado" class="form-label">Exame Físico do Abdômen - Fígado (EFE_abdome_figado)</label>
-                    <textarea class="form-control" id="EFE_abdome_figado" name="EFE_abdome_figado" rows="3" readonly>{{ $exame->EFE_abdome_figado }}</textarea>
-                </div>
-            </div>
-
-            <!-- Campos adicionais -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="EFE_sec_bioquimicos" class="form-label">Exames Secundários - Bioquímicos (EFE_sec_bioquimicos)</label>
-                    <textarea class="form-control" id="EFE_sec_bioquimicos" name="EFE_sec_bioquimicos" rows="3" readonly>{{ $exame->EFE_sec_bioquimicos }}</textarea>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="Aluno" class="form-label">Aluno</label>
-                    <input type="text" class="form-control" id="Aluno" name="Aluno" value="{{ $exame->Aluno }}" readonly>
-                </div>
-            </div>
-
-            <!-- Campos para códigos -->
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="Codigo" class="form-label">Código</label>
-                    <input type="text" class="form-control" id="Codigo" name="Codigo" value="{{ $exame->Codigo }}" readonly>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="Professor" class="form-label">Professor</label>
-                    <input type="text" class="form-control" id="Professor" name="Professor" value="{{ $exame->Professor }}" readonly>
-                </div>
-            </div>
+            <table class="table table-bordered">
+                <tbody>
+                    @foreach([
+                        'QD' => 'Queixa Principal',
+                        'HMA' => 'História da Moléstia Atual',
+                        'AP' => 'Antecedentes Pessoais',
+                        'AF' => 'Antecedentes Familiares',
+                        'IDA_pf' => 'Pele e Faneras',
+                        'IDA_cabeca' => 'Cabeça',
+                        'IDA_olhos' => 'Olhos',
+                        'IDA_nariz' => 'Nariz',
+                        'IDA_bg' => 'Boca e Garganta',
+                        'IDA_acr' => 'Aparelho Circulatório',
+                        'IDA_ad' => 'Aparelho Digestivo',
+                        'IDA_gu' => 'Aparelho Genitourinário',
+                        'IDA_slh' => 'Sistema Linfático e Hematológico',
+                        'IDA_sev' => 'Sistema Endócrino e Vasos',
+                        'IDA_sn' => 'Sistema Nervoso',
+                        'IDA_al' => 'Aparelho Locomotor',
+                        'IDA_qe' => 'Quadro Especial',
+                        'EFG_afg' => 'Avaliação Física Geral',
+                        'EFG_pele' => 'Pele',
+                        'EFG_anexos' => 'Anexos',
+                        'EFG_subcutaneo' => 'Tecido Subcutâneo',
+                        'EFG_gl' => 'Gânglios Linfáticos',
+                        'EFG_mucosas' => 'Mucosas',
+                        'EFG_osteomuscular' => 'Sistema Osteomuscular',
+                        'EFG_peso' => 'Peso',
+                        'EFG_altura' => 'Altura',
+                        'EFG_PA' => 'Pressão Arterial',
+                        'EFG_FC' => 'Frequência Cardíaca',
+                        'EFG_FR' => 'Frequência Respiratória',
+                        'EFG_T' => 'Temperatura',
+                        'EFE_sc_cranio' => 'Crânio',
+                        'EFE_sc_olhos' => 'Olhos',
+                        'EFE_sc_nariz' => 'Nariz',
+                        'EFE_sc_dfm' => 'DFM',
+                        'EFE_sc_boca' => 'Boca',
+                        'EFE_sc_orofaringe' => 'Orofaringe',
+                        'EFE_sc_pescoco' => 'Pescoço',
+                        'EFE_ar_ie' => 'Inspeção Externa',
+                        'EFE_ar_id' => 'Inspeção Direita',
+                        'EFE_ar_palpacao' => 'Palpação',
+                        'EFE_ar_percussao' => 'Percussão',
+                        'EFE_ar_ausculta' => 'Ausculta',
+                        'EFE_ac_inspecao' => 'Inspeção',
+                        'EFE_ac_palpacao' => 'Palpação',
+                        'EFE_ac_ausculta' => 'Ausculta',
+                        'EFE_ac_arterias' => 'Artérias',
+                        'EFE_abdome_inspecao' => 'Inspeção Abdominal',
+                        'EFE_abdome_ausculta' => 'Ausculta Abdominal',
+                        'EFE_abdome_percussao' => 'Percussão Abdominal',
+                        'EFE_abdome_figado' => 'Fígado',
+                        'EFE_abdome_baco' => 'Baço',
+                        'EFE_abdome_rins' => 'Rins',
+                        'EFE_abdome_ps' => 'Pontos Sensíveis',
+                        'EFE_abdome_pd' => 'Pontos Dolorosos',
+                        'EFE_agu_ar' => 'Aparelho Respiratório',
+                        'EFE_agu_ge' => 'Aparelho Geniturinário',
+                        'EFE_cv_inspecao' => 'Inspeção CV',
+                        'EFE_cv_pmc' => 'PMC',
+                        'EFE_cv_membros' => 'Membros Inferiores',
+                        'EFE_sn_ep' => 'Exame Psicomotor',
+                        'EFE_sn_mv-fm-cm' => 'Movimento Voluntário',
+                        'EFE_sn_sensibilidade' => 'Sensibilidade',
+                        'EFE_hd1' => 'Hipótese Diagnóstica 1',
+                        'EFE_hd2' => 'Hipótese Diagnóstica 2',
+                        'EFE_hd3' => 'Hipótese Diagnóstica 3',
+                        'EFE_hd4' => 'Hipótese Diagnóstica 4',
+                        'EFE_hd5' => 'Hipótese Diagnóstica 5',
+                        'EFE_hd6' => 'Hipótese Diagnóstica 6',
+                        'EFE_hd7' => 'Hipótese Diagnóstica 7',
+                        'EFE_hd8' => 'Hipótese Diagnóstica 8',
+                        'EFE_hd9' => 'Hipótese Diagnóstica 9',
+                        'EFE_hd10' => 'Hipótese Diagnóstica 10',
+                        'EFE_sec_bioquimicos' => 'Bioquímicos',
+                        'EFE_sec_microbiologicos' => 'Microbiológicos',
+                        'EFE_sec_di' => 'Diagnóstico Imagem',
+                        'EFE_ct_nm' => 'Conduta Não Medicamentosa',
+                        'EFE_ct_medicamentosa' => 'Conduta Medicamentosa',
+                        'EFE_ct_procedimentos' => 'Procedimentos',
+                        'EFE_ct_cirurgia' => 'Cirurgia',
+                        'Aluno' => 'Aluno Responsável',
+                        'Codigo' => 'Código do Exame',
+                        'Professor' => 'Professor Responsável',
+                    ]; as $field => $label)
+                        <tr>
+                            <th style="width: 30%; background-color: #f8f9fa; font-weight: bold;">{{ $label }}</th>
+                            <td>{{ $exame->$field ?? 'Não informado' }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
