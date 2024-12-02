@@ -1,8 +1,4 @@
 ☐ id
-☐ nome_paciente
-☐ nr_sus
-☐ sexo
-☐ data_nascimento
 ☐ nome_exame
 ☐ data_exame
 ☐ hora
@@ -15,3 +11,6 @@
 ☐ observacoes
 ☐ reavaliacao
 ☐ prescricoes_medicas
+
+
+
