@@ -13,9 +13,6 @@
               <li class="nav-item">
                   <a class="nav-link active" href="{{ route('login') }}">Login</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link active" href="#">Contato</a>
-              </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Usuário
@@ -23,7 +20,6 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{{ route('users') }}">Gerenciar Usuários</a></li>
                       <li><a class="dropdown-item" href="{{ route('user.create') }}">Criar um Usuário</a></li>
-                      <li><a class="dropdown-item" href="#">Outra ação</a></li>
                       <li><hr class="dropdown-divider"></li>
                   </ul>
               </li>
@@ -34,7 +30,6 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{{ route('anamneses') }}">Gerenciar fichas de Anamnese</a></li>
                       <li><a class="dropdown-item" href="{{ route('anamnese.create') }}">Criar uma ficha de Anamnese</a></li>
-                      <li><a class="dropdown-item" href="#">Outra ação</a></li>
                       <li><hr class="dropdown-divider"></li>
                   </ul>
               </li>
@@ -45,7 +40,6 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{ route('exames') }}">Gerenciar exames médicos</a></li>
                     <li><a class="dropdown-item" href="{{ route('exame.create') }}">Iniciar atendimento médico</a></li>
-                    <li><a class="dropdown-item" href="#">Outra ação</a></li>
                     <li><hr class="dropdown-divider"></li>
                 </ul>
             </li>
