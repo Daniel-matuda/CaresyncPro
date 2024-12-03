@@ -1,16 +1,16 @@
-☐ id
-☐ nome_exame
-☐ data_exame
-☐ hora
-☐ resultado
-☐ especialidade
-☐ local
-☐ motivo_exame
-☐ endereco
-☐ nome_medico
-☐ observacoes
-☐ reavaliacao
-☐ prescricoes_medicas
+✔ id @done(24-12-03 19:49)
+✔ nome_exame @done(24-12-03 19:49)
+✔ data_exame @done(24-12-03 19:49)
+✔ hora @done(24-12-03 19:49)
+✔ resultado @done(24-12-03 19:49)
+✔ especialidade @done(24-12-03 19:49)
+✔ local @done(24-12-03 19:49)
+✔ motivo_exame @done(24-12-03 19:49)
+✔ endereco @done(24-12-03 19:49)
+✔ nome_medico @done(24-12-03 19:49)
+✔ observacoes @done(24-12-03 19:49)
+✔ reavaliacao @done(24-12-03 19:49)
+✔ prescricoes_medicas @done(24-12-03 19:49)
 
 
 
