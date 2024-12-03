@@ -18,11 +18,13 @@
                         <div class="d-flex flex-column align-items-center">
                             @auth
                                 {{-- Botão de editar somente para usuários autenticados --}}
-                                <a class="btn btn-info btn-sm mb-2" href="{{ route('user.edit', $user->id) }}">Editar Usuário</a>
+                                <a class="btn btn-info btn-sm mb-2 d-flex align-items-center" href="{{ route('user.edit', $user->id) }}">
+                                    <i class="bi bi-pencil me-2"></i> Editar Usuário
+                                </a>
 
                                 {{-- Botão para abrir a modal de confirmação --}}
-                                <button class="btn btn-danger btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $user->id }}">
-                                    Deletar Usuário
+                                <button class="btn btn-danger btn-sm mb-2 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $user->id }}">
+                                    <i class="bi bi-trash me-2"></i> Deletar Usuário
                                 </button>
                             @endauth
                         </div>
@@ -42,14 +44,14 @@
                             Tem certeza que deseja <strong>DELETAR</strong> o usuário <strong>{{ $user->fullName }}</strong>?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                Cancelar
+                            <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal">
+                                <i class="bi bi-x-circle me-2"></i> Cancelar
                             </button>
                             <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger">
-                                    Deletar
+                                <button type="submit" class="btn btn-danger d-flex align-items-center">
+                                    <i class="bi bi-trash me-2"></i> Deletar
                                 </button>
                             </form>
                         </div>

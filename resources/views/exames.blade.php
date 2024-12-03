@@ -19,14 +19,18 @@
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center">
                             {{-- Botão de editar --}}
-                            <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.edit', $exame->id) }}">Editar exame</a>
+                            <a class="btn btn-info btn-sm mb-2 d-flex align-items-center" href="{{ route('exame.edit', $exame->id) }}">
+                                <i class="bi bi-pencil me-2"></i> Editar exame
+                            </a>
 
                             {{-- Botão de ver resultado do exame --}}
-                            <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.show', $exame->id) }}">Resultado do exame</a>
+                            <a class="btn btn-info btn-sm mb-2 d-flex align-items-center" href="{{ route('exame.show', $exame->id) }}">
+                                <i class="bi bi-file-earmark-text me-2"></i> Resultado do exame
+                            </a>
 
                             {{-- Botão para abrir a modal de confirmação --}}
-                            <button class="btn btn-danger btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $exame->id }}">
-                                Deletar Exame médico
+                            <button class="btn btn-danger btn-sm mb-2 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $exame->id }}">
+                                <i class="bi bi-trash me-2"></i> Deletar Exame médico
                             </button>
                         </div>
                     </div>
@@ -45,11 +49,15 @@
                             Tem certeza que deseja <strong>DELETAR</strong> o exame médico com protocolo nº {{ $exame->id }}?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal">
+                                <i class="bi bi-x-circle me-2"></i> Cancelar
+                            </button>
                             <form action="{{ route('exame.destroy', $exame->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger">Deletar</button>
+                                <button type="submit" class="btn btn-danger d-flex align-items-center">
+                                    <i class="bi bi-trash me-2"></i> Deletar
+                                </button>
                             </form>
                         </div>
                     </div>
