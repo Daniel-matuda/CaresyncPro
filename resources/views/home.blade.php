@@ -6,7 +6,8 @@
         <div class="container">
             <h1 class="display-4">CareSync</h1>
             <p class="lead">Em prol de sua saúde.</p>
-            <a href="#" class="btn btn-primary btn-lg">Saiba Mais</a>
+            <a href="https://www.canva.com/design/DAGYLazLvPE/OpZ7GBCKR7EvHRArB407LA/edit?utm_content=DAGYLazLvPE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="btn btn-primary btn-lg" target="_blank">Saiba Mais</a>
+
         </div>
     </section>
 

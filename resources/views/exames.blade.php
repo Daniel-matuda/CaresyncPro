@@ -2,54 +2,70 @@
 
 @section('content')
 
-  @if (auth()->check()) <!-- Verifica se o usuário está autenticado -->
+@if (auth()->check() && auth()->user()->role === 'medic') 
+    <!-- Verifica se o usuário está autenticado e se é médico -->
     <h2 class="text-center" style="font-family: 'Dancing Script', cursive; font-size: 2rem; font-weight: normal; margin-top: 20px;">Gerenciar exames</h2>
     <hr>
 
     <div class="row">
-      @foreach ($exames as $exame)
-        <div class="col-md-3 mb-3">
-          <div class="card">
-            <h4 class="card-header">
-              <br>
-              <a style="text-decoration: none" href="">Nrº do protocolo: {{ $exame->id }}</a>
-            </h4>
+        @foreach ($exames as $exame)
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <h4 class="card-header">
+                        <br>
+                        <a style="text-decoration: none" href="">Nrº do protocolo: {{ $exame->id }}</a>
+                    </h4>
 
-            <div class="card-body">
-              <div class="d-flex flex-column align-items-center">
-                @auth
-                  {{-- Botão de editar somente para usuários autenticados --}}
-                  <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.edit', $exame->id) }}">Editar exame</a>
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center">
+                            {{-- Botão de editar --}}
+                            <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.edit', $exame->id) }}">Editar exame</a>
 
-                  {{-- Botão de ver resultado do exame --}}
-                  <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.show', $exame->id) }}">Resultado do exame</a>
+                            {{-- Botão de ver resultado do exame --}}
+                            <a class="btn btn-info btn-sm mb-2" href="{{ route('exame.show', $exame->id) }}">Resultado do exame</a>
 
-                  {{-- Botão de deletar exame somente para usuários autenticados --}}
-                  <form action="{{ route('exame.destroy', $exame->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger btn-sm mb-2" type="submit">Deletar Exame médico</button>
-                  </form>
-                @endauth
-
-                {{-- Exibir informações públicas se necessário --}}
-                {{-- <small>Criou {{ $user->posts->count() }} Aulas </small> --}}
-              </div>
+                            {{-- Botão para abrir a modal de confirmação --}}
+                            <button class="btn btn-danger btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $exame->id }}">
+                                Deletar Exame médico
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      @endforeach
+
+            {{-- Modal de confirmação para deletar exame --}}
+            <div class="modal fade" id="deleteModal-{{ $exame->id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Confirmação de Exclusão</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Tem certeza que deseja <strong>DELETAR</strong> o exame médico com protocolo nº {{ $exame->id }}?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <form action="{{ route('exame.destroy', $exame->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Deletar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 
     {{ $exames->links() }}
-
-  @else
-    <!-- Se o usuário não estiver autenticado -->
+@else
+    <!-- Se o usuário não estiver autenticado ou não for médico -->
     <div class="card text-white bg-danger mb-3">
-      <div class="card-body">
-        <h4 class="card-title text-center">Você não tem permissão para acessar essa tela</h4>
-      </div>
+        <div class="card-body">
+            <h4 class="card-title text-center">Você precisa estar logado como médico para acessar essa tela</h4>
+        </div>
     </div>
-  @endif
+@endif
 
 @endsection
