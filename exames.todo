@@ -1,9 +1,9 @@
 Exames:
-    ☐ QD (Queixa e duração):
-    ☐ HMA (Historia da Molestia Atual):
-    ☐ AP (Antecedentes Pessoais):
-    ☐ AF (Antecedentes Familiares)
-    ☐ IDA (Interrogatorio Sobre Diversos Aparelhos)
+    ✔ QD (Queixa e duração): @done(24-11-21 14:59)
+    ✔ HMA (Historia da Molestia Atual): @done(24-11-21 15:00)
+    ✔ AP (Antecedentes Pessoais): @done(24-11-21 15:00)
+    ✔ AF (Antecedentes Familiares) @done(24-11-21 15:00)
+    ✔ IDA (Interrogatorio Sobre Diversos Aparelhos) @done(24-11-21 15:00)
         ☐ IDA_pf
         ☐ IDA_cabeca
         ☐ IDA_olhos
@@ -84,3 +84,4 @@ Exames:
     ☐ Aluno
     ☐ Codigo
     ☐ Professor
+    ☐ anamnese_id

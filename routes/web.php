@@ -4,11 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExameController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AnamneseController;
 use App\Http\Controllers\PasswordController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/', [HomeController::class, 'index'])->withoutMiddleware('auth')->name('home');
+
 
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
@@ -27,6 +31,14 @@ Route::put('/anamnese/{anamnese}', [AnamneseController::class, 'update'])->name(
 Route::delete('/anamnese/{anamnese}', [AnamneseController::class, 'destroy'])->name('anamnese.destroy');
 Route::get('/anamnese/{anamnese}', [AnamneseController::class, 'show'])->name('anamnese.show');
 
+Route::get('/exames', [ExameController::class, 'index'])->name('exames');
+Route::get('/exame/create', [ExameController::class, 'create'])->name('exame.create');
+Route::post('/exame/store', [ExameController::class, 'store'])->name('exame.store');
+Route::get('/exame/edit/{exame}', [ExameController::class, 'edit'])->name('exame.edit');
+Route::put('/exame/{exame}', [ExameController::class, 'update'])->name('exame.update');
+Route::delete('/exame/{exame}', [ExameController::class, 'destroy'])->name('exame.destroy');
+Route::get('/exame/{exame}', [ExameController::class, 'show'])->name('exame.show');
+
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login.store')->middleware('throttle:3');
@@ -34,3 +46,4 @@ Route::get('logout', [LoginController::class, 'destroy'])->name('login.destroy')
 Route::put('/password/{user}', [PasswordController::class, 'update'])->name('password.update');
 
 Route::get('admin', [AdminController::class, 'index'])->middleware('auth');
+

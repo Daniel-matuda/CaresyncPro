@@ -25,7 +25,6 @@
                       <li><a class="dropdown-item" href="{{ route('user.create') }}">Criar um Usuário</a></li>
                       <li><a class="dropdown-item" href="#">Outra ação</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Mais opções</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown">
@@ -37,9 +36,19 @@
                       <li><a class="dropdown-item" href="{{ route('anamnese.create') }}">Criar uma ficha de Anamnese</a></li>
                       <li><a class="dropdown-item" href="#">Outra ação</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Mais opções</a></li>
                   </ul>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Exame
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('exames') }}">Gerenciar exames médicos</a></li>
+                    <li><a class="dropdown-item" href="{{ route('exame.create') }}">Iniciar atendimento médico</a></li>
+                    <li><a class="dropdown-item" href="#">Outra ação</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                </ul>
+            </li>
 
               <li class="nav-item">
                   @auth
@@ -54,9 +63,9 @@
                   @endguest
               </li>
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
+              </li> --}}
           </ul>
 
           <form class="d-flex">

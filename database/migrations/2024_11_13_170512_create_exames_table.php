@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('HMA')->nullable();
             $table->text('AP')->nullable();
             $table->text('AF')->nullable();
-            $table->text('IDA')->nullable();
             $table->text('IDA_pf')->nullable();
             $table->text('IDA_cabeca')->nullable();
             $table->text('IDA_olhos')->nullable();
@@ -101,6 +100,12 @@ return new class extends Migration
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
+
+            $table->unsignedBigInteger('anamnese_id')->nullable(); 
+
+            // Definindo as chaves estrangeiras
+            // $table->foreign('anamnese_id')->references('id')->on('anamnese')->onDelete('set null');
+
         });
     }
 

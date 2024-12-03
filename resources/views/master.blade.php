@@ -33,6 +33,26 @@
         .navbar {
             min-height: 60px; /* ajuste conforme necessário */
         }
+
+        /* estilo das assinaturas dos exames */
+        .signature-line {
+            position: relative;
+            width: 100%;
+        }
+
+        .signature-line textarea {
+            border: none;
+            border-bottom: 2px solid #000;
+            padding-left: 0;
+            background: transparent;
+            box-shadow: none;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .signature-line textarea:focus {
+            outline: none;
+        }
     </style>
 
 </head>

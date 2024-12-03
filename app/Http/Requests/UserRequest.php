@@ -19,18 +19,19 @@ class UserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
+        $userId = $this->route('user'); // Obtém o ID do usuário da rota, se aplicável
+    
         return [
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string',
+            'email' => 'required|email|unique:users,email,' . $userId, // Ignora o email do usuário atual
+            'password' => 'nullable|string', // Permite que o password seja opcional
             'nascimento' => 'required|date',
             'sexo' => 'required|string|in:masculino,feminino,outro',
             'endereco' => 'required|string|max:255',
             'telefone' => 'required|string|max:30',
-
             'especialidade' => 'nullable|string|max:255',
             'cep' => 'nullable|string|max:255',
             'cidade' => 'nullable|string|max:255',

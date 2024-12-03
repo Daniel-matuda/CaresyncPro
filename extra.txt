@@ -1,0 +1,5 @@
+php artisan route:list // listagem de rotas funcionais
+php artisan test // rodas todos os testes
+php artisan tinker // rodar o ambiente de testes de registros
+
+
