@@ -12,7 +12,7 @@
             class="form-control border-0 shadow-none rounded-start me-2" 
             type="search" 
             placeholder="Digite sua busca..." 
-            name="s" 
+            name="s_anamneses" 
             aria-label="Search" 
             style="background-color: #f8f9fa;"
         >
@@ -25,12 +25,7 @@
         </button>
     </form>
 
-
-
-
     <hr>
-
-
 
     <div class="row">
         @forelse ($anamneses as $anamnese)
@@ -101,7 +96,7 @@
         @endforelse
     </div>
 
-    {{ $anamneses->appends(['s' => request()->query('s')])->links() }}
+    {{ $anamneses->appends(['s_anamneses' => request()->query('s_anamneses')])->links() }}
 
 @else
     <!-- Se o usuário não estiver autenticado -->

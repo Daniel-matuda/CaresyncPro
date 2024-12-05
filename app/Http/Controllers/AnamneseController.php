@@ -14,7 +14,7 @@ class AnamneseController extends Controller
      */
     public function index()
     {
-        $search =  request()->query('s');
+        $search =  request()->query('s_anamneses');
         if ($search) {
             $anamneses = Anamnese::where('nome','like',"%{$search}%")->orWhere('local_do_atendimento','like',"%{$search}%")->paginate(20);
         } else {
