@@ -13,6 +13,7 @@
                 <div class="card">
                     <h4 class="card-header">
                         <br>
+                        <a>Exame médico</a>
                         <a style="text-decoration: none" href="">Nrº do protocolo: {{ $exame->id }}</a>
                     </h4>
 

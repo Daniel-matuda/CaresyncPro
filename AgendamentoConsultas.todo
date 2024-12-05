@@ -1,13 +1,13 @@
-☐ id
-☐ nome_paciente
-☐ nr_sus
-☐ sexo
-☐ data_nascimento
-☐ data_consulta
-☐ hora
-☐ especialidade
-☐ local
-☐ endereco
-☐ tipo
-☐ nome_medico
-☐ observacoes
+✔ id @done(24-12-03 19:49)
+✔ nome_paciente @done(24-12-03 19:49)
+✔ nr_sus @done(24-12-03 19:49)
+✔ sexo @done(24-12-03 19:49)
+✔ data_nascimento @done(24-12-03 19:49)
+✔ data_consulta @done(24-12-03 19:49)
+✔ hora @done(24-12-03 19:49)
+✔ especialidade @done(24-12-03 19:49)
+✔ local @done(24-12-03 19:49)
+✔ endereco @done(24-12-03 19:49)
+✔ tipo @done(24-12-03 19:49)
+✔ nome_medico @done(24-12-03 19:49)
+✔ observacoes @done(24-12-03 19:49)

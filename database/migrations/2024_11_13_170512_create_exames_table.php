@@ -98,7 +98,6 @@ return new class extends Migration
             $table->text('Codigo')->nullable();
             $table->text('Professor')->nullable();
             
-
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
 
