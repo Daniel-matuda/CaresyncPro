@@ -4,7 +4,9 @@
 
   @if (auth()->check()) <!-- Verifica se o usuário está autenticado -->
     <div class="container mt-5">
-        <h2 class="mb-4">Criar uma ficha de Anamnese</h2>
+        <h2 class="text-center" style="font-family: 'Dancing Script', cursive; font-size: 2rem; font-weight: normal; margin-top: 20px;">Criar uma ficha de Anamnese</h2>
+
+        <hr>
 
         @if (session()->has('success'))
             <x-alert key="success" :message="session()->get('success')"/>

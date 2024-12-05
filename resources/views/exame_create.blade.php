@@ -4,7 +4,9 @@
 
 <div class="container mt-5">
     @if (auth()->check() && auth()->user()->role == 'medic') <!-- Verifica se o usuário está autenticado e se é um médico -->
-        <h2 class="mb-4">Criar Exame</h2>
+        <h2 class="text-center" style="font-family: 'Dancing Script', cursive; font-size: 2rem; font-weight: normal; margin-top: 20px;">Criar uma ficha de Anamnese</h2>
+
+        <hr>
 
         @if (session()->has('success'))
             <x-alert key="success" :message="session()->get('success')"/>

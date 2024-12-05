@@ -4,10 +4,36 @@
 
 @if (auth()->check()) <!-- Verifica se o usuário está autenticado -->
     <h2 class="text-center" style="font-family: 'Dancing Script', cursive; font-size: 2rem; font-weight: normal; margin-top: 20px;">Listagem de fichas de Anamneses</h2>
+
+    <!-- Componente de busca estilizado com espaçamento -->
+    <form class="d-flex align-items-center p-2 bg-primary rounded shadow-sm" style="max-width: 500px; margin: auto;">
+        <!-- Input de busca com margem direita -->
+        <input 
+            class="form-control border-0 shadow-none rounded-start me-2" 
+            type="search" 
+            placeholder="Digite sua busca..." 
+            name="s" 
+            aria-label="Search" 
+            style="background-color: #f8f9fa;"
+        >
+        
+        <!-- Botão de busca -->
+        <button 
+            class="btn btn-light px-4 text-primary fw-bold rounded-end shadow-sm" 
+            type="submit">
+            Buscar
+        </button>
+    </form>
+
+
+
+
     <hr>
 
+
+
     <div class="row">
-        @foreach ($anamneses as $anamnese)
+        @forelse ($anamneses as $anamnese)
             <div class="col-md-3 mb-3">
                 <div class="card">
                     <h4 class="card-header">
@@ -63,10 +89,19 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <!-- Caso não haja nenhum anamnese -->
+            <div class="col-12 mb-3">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Nenhum post encontrado</h4>
+                    </div>
+                </div>
+            </div>
+        @endforelse
     </div>
 
-    {{ $anamneses->links() }}
+    {{ $anamneses->appends(['s' => request()->query('s')])->links() }}
 
 @else
     <!-- Se o usuário não estiver autenticado -->

@@ -14,7 +14,12 @@ class AnamneseController extends Controller
      */
     public function index()
     {
-        $anamneses = Anamnese::paginate(20);
+        $search =  request()->query('s');
+        if ($search) {
+            $anamneses = Anamnese::where('nome','like',"%{$search}%")->orWhere('local_do_atendimento','like',"%{$search}%")->paginate(20);
+        } else {
+            $anamneses = Anamnese::paginate(20);
+        }
 
         return view('anamneses', [
             'title' => 'Listagem de fichas',

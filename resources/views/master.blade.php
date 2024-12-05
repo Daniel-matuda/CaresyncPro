@@ -11,6 +11,8 @@
 
     {{-- link dos icons do bootstrap5 --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         body {
             background-color: white; /* Cor de fundo da página agora é branca */
